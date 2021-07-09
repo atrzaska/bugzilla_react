@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { getAccessToken } from '@/services/jwt'
+import { getAccessToken } from 'src/services/jwt'
 import './middleware/addAxiosTokenRefresh'
 import './middleware/addErrorToast'
 

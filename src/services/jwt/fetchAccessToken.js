@@ -1,5 +1,5 @@
-import { setAccessToken } from '@/services/jwt'
-import API from '@/services/requests'
+import { setAccessToken } from 'src/services/jwt'
+import API from 'src/services/requests'
 
 const fetchAccessToken = () =>
   fetch('/api/refresh_token', { method: 'POST' })

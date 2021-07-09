@@ -1,5 +1,5 @@
 import jwtDecode from 'jwt-decode'
-import { getAccessToken } from '@/services/jwt'
+import { getAccessToken } from 'src/services/jwt'
 
 const isTokenValidOrUndefined = () => {
   const token = getAccessToken()

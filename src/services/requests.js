@@ -1,6 +1,6 @@
-import router from '@/router'
-import API from '@/lib/api'
-import { setAccessToken } from '@/services/jwt'
+import router from 'src/router'
+import API from 'src/lib/api'
+import { setAccessToken } from 'src/services/jwt'
 
 const get =
   (path) =>
@@ -63,6 +63,7 @@ const deleteMember = (id) => API.delete(`/members/${id}`)
 
 const createInvite = (params) => API.post('/invites', params)
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   clearCurrentUserCache,
   clearToken,
