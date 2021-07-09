@@ -1,0 +1,21 @@
+@import "./bootstrap";
+@import "./utils";
+@import "./auth";
+@import "./header";
+@import "./landing";
+@import "./modal";
+@import "./side_drawer";
+@import "./sidebar";
+@import "./toast";
+
+.wrapper {
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+@media (min-width: 576px) {
+  .wrapper {
+    margin-left: 50px;
+    margin-bottom: 0px;
+  }
+}

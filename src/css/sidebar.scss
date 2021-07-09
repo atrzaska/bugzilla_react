@@ -1,0 +1,40 @@
+.sidebar {
+  background-color: #ffffff;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 8;
+  box-shadow: 1px 0 0 #d1d1d1;
+}
+
+.sidebar-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.sidebar-header {
+  background-color: #563d7c;
+  height: 30px;
+  width: 100%;
+}
+
+.sidebar-item {
+  height: 48px;
+  width: 48px;
+}
+
+.sidebar-item-active,
+.sidebar-item:hover {
+  background-color: #f2f2f2;
+}
+
+@media (min-width: 576px) {
+  .sidebar {
+    width: 48px;
+    right: auto;
+    height: 100%;
+    padding-top: 48px;
+  }
+}

@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;700&display=swap');
+
+// Bootstrap overrides
+$enable-validation-icons: false;
+$enable-caret: false;
+$link-decoration: none;
+
+$primary: #563d7c;
+$light: #e5e5e5;
+$secondary: #666;
+$body-color: #141313;
+$border-color: $light;
+
+$input-border-color: $light;
+$input-btn-focus-box-shadow: none !important;
+$box-shadow-inset: none !important;
+$form-select-focus-box-shadow: none !important;
+
+$list-group-border-color: $light;
+$font-family-base: 'Fira Sans', sans-serif;
+$pagination-border-width: 0;
+$pagination-disabled-color: $light;
+$pagination-padding-x: 0.88rem;
+@import "node_modules/bootstrap/scss/bootstrap";
+
+// Extra styles
+.card {
+  box-shadow: 0 2px 2px rgba(0,0,0,.16);
+}
+
+.btn-outline-secondary {
+  color: #666 !important;
+  border-color: $light !important;
+  background-color: #fff !important;
+}
+
+.btn-outline-secondary:hover {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+}
+
+.modal {
+  display: block;
+}
+
+.toast {
+  width: auto;
+  max-width: 400px;
+}
+
+hr {
+  border-top: 1px dashed $light;
+}
+
+.page-link {
+  border-radius: 4px;
+}
+
+.page-link:hover {
+  background: none;
+}
