@@ -1,3 +1,5 @@
-const App = () => <h1>Hello</h1>
+import Routes from 'src/router'
+
+const App = () => <Routes />
 
 export default App
