@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from 'react'
 import useObject from 'src/hooks/useObject'
 import API from 'src/services/requests'
@@ -8,7 +9,7 @@ const useCurrentUser = (defaultValue = {}) => {
   useEffect(() => {
     API.fetchCurrentUser()
       .then((res) => setObject(res.data))
-      .catch((err) => setObject(defaultValue))
+      .catch(() => setObject(defaultValue))
   }, [])
 
   const isLoggedIn = () => !!user.id
