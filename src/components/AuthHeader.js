@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
+import useCurrentUser from 'src/hooks/useCurrentUser'
 
 const AuthHeader = () => {
-  const isLoggedIn = true
+  const { isLoggedIn } = useCurrentUser()
   const isSigninPage = window.location.pathname === '/signin'
 
   return (
@@ -9,7 +10,7 @@ const AuthHeader = () => {
       <Link className="me-auto" to="/">
         <img height="48" src="/images/bootstrap.svg" width="48" alt="pic" />
       </Link>
-      {isLoggedIn ? (
+      {isLoggedIn() ? (
         <Link v-if="isLoggedIn" className="btn btn-primary" to="/dashboard">
           Go to the dashboard
         </Link>
