@@ -1,5 +1,11 @@
+import AppLayout from 'src/layouts/App'
+
 const TasksNew = () => {
-  return <h1>TasksNew</h1>
+  return (
+    <AppLayout>
+      <h1>TasksNew</h1>
+    </AppLayout>
+  )
 }
 
 export default TasksNew

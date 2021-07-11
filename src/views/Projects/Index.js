@@ -1,5 +1,11 @@
+import AppLayout from 'src/layouts/App'
+
 const ProjectsIndex = () => {
-  return <h1>ProjectsIndex</h1>
+  return (
+    <AppLayout>
+      <h1>Projects</h1>
+    </AppLayout>
+  )
 }
 
 export default ProjectsIndex

@@ -1,5 +1,11 @@
+import AppLayout from 'src/layouts/App'
+
 const StoriesEdit = () => {
-  return <h1>StoriesEdit</h1>
+  return (
+    <AppLayout>
+      <h1>StoriesEdit</h1>
+    </AppLayout>
+  )
 }
 
 export default StoriesEdit

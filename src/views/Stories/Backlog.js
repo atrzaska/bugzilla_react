@@ -1,5 +1,11 @@
+import AppLayout from 'src/layouts/App'
+
 const Backlog = () => {
-  return <h1>Backlog</h1>
+  return (
+    <AppLayout>
+      <h1>Backlog</h1>
+    </AppLayout>
+  )
 }
 
 export default Backlog

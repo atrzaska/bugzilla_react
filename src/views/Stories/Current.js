@@ -1,5 +1,11 @@
+import AppLayout from 'src/layouts/App'
+
 const Current = () => {
-  return <h1>Current</h1>
+  return (
+    <AppLayout>
+      <h1>Current</h1>
+    </AppLayout>
+  )
 }
 
 export default Current
