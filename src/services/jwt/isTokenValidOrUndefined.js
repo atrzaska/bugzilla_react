@@ -10,11 +10,7 @@ const isTokenValidOrUndefined = () => {
 
   try {
     const { exp } = jwtDecode(token)
-    if (Date.now() >= exp * 1000) {
-      return false
-    } else {
-      return true
-    }
+    return Date.now() < exp * 1000
   } catch {
     return false
   }
