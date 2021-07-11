@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Router, Switch } from 'react-router-dom'
 import CommentsEdit from 'src/views/Comments/Edit'
 import CommentsNew from 'src/views/Comments/New'
 import Confirm from 'src/views/Auth/Confirm'
@@ -29,98 +29,74 @@ import TasksNew from 'src/views/Tasks/New'
 import Terms from 'src/views/Pages/Terms'
 import UsersSettings from 'src/views/Users/Settings'
 
+import { createBrowserHistory } from 'history'
+import PublicRoute from 'src/components/routes/PublicRoute'
+import PrivateRoute from 'src/components/routes/PrivateRoute'
+
+const history = createBrowserHistory()
+
 const Routes = () => (
-  <Router>
+  <Router history={history}>
     <Switch>
-      <Route exact path="/">
-        <Landing />
-      </Route>
-      <Route path="/terms">
-        <Terms />
-      </Route>
-      <Route path="/privacy">
-        <Privacy />
-      </Route>
-      <Route path="/help">
-        <Help />
-      </Route>
-      <Route path="/signup">
-        <Signup />
-      </Route>
-      <Route path="/signup/success">
-        <SignupSuccess />
-      </Route>
-      <Route path="/signin">
-        <Signin />
-      </Route>
-      <Route path="/recover">
-        <Recover />
-      </Route>
-      <Route path="/recover/success">
-        <RecoverSuccess />
-      </Route>
-      <Route path="/reset_password/:id">
-        <ResetPassword />
-      </Route>
-      <Route path="/confirm">
-        <Confirm />
-      </Route>
-      <Route path="/dashboard">
-        <Dashboard />
-      </Route>
-      <Route path="/users/settings">
-        <UsersSettings />
-      </Route>
-      <Route path="/projects/:id/current">
-        <StoriesCurrent />
-      </Route>
-      <Route path="/projects/:id/backlog">
-        <StoriesBacklog />
-      </Route>
-      <Route path="/projects/:id/icebox">
-        <StoriesIcebox />
-      </Route>
-      <Route path="/projects/:id/done">
-        <StoriesDone />
-      </Route>
-      <Route path="/projects/:id/members">
-        <MembersList />
-      </Route>
-      <Route path="/projects/:id/members/:memberId/edit">
-        <MembersEdit />
-      </Route>
-      <Route path="/projects/:id/members/new">
-        <MembersNew />
-      </Route>
-      <Route path="/projects/:id/stories/new">
-        <StoriesNew />
-      </Route>
-      <Route path="/projects/:projectId/stories/:id/edit">
-        <StoriesEdit />
-      </Route>
-      <Route path="/projects/new">
-        <ProjectsNew />
-      </Route>
-      <Route path="/projects/:id/edit">
-        <ProjectsEdit />
-      </Route>
-      <Route path="/stories/:storyId/comments/new">
-        <CommentsNew />
-      </Route>
-      <Route path="/stories/:storyId/comments/:id/edit">
-        <CommentsEdit />
-      </Route>
-      <Route path="/stories/:storyId/tasks/new">
-        <TasksNew />
-      </Route>
-      <Route path="/stories/:storyId/tasks/:id/edit">
-        <TasksEdit />
-      </Route>
-      <Route path="/projects">
-        <ProjectsList />
-      </Route>
+      <PublicRoute exact path="/" component={Landing} />
+      <PublicRoute path="/terms" component={Terms} />>
+      <PublicRoute path="/privacy" component={Privacy} />
+      <PublicRoute path="/help" component={Help} />
+      <PublicRoute
+        restricted
+        path="/signup/success"
+        component={SignupSuccess}
+      />
+      <PublicRoute restricted path="/signup" component={Signup} />
+      <PublicRoute restricted path="/signin" component={Signin} />
+      <PublicRoute
+        restricted
+        path="/recover/success"
+        component={RecoverSuccess}
+      />
+      <PublicRoute restricted path="/recover" component={Recover} />
+      <PublicRoute
+        restricted
+        path="/reset_password/:id"
+        component={ResetPassword}
+      />
+      <PublicRoute restricted path="/confirm" component={Confirm} />
+      <PrivateRoute procted path="/dashboard" component={Dashboard} />
+      <PrivateRoute procted path="/users/settings" component={UsersSettings} />
+      <PrivateRoute path="/projects/:id/current" component={StoriesCurrent} />
+      <PrivateRoute path="/projects/:id/backlog" component={StoriesBacklog} />
+      <PrivateRoute path="/projects/:id/icebox" component={StoriesIcebox} />
+      <PrivateRoute procted path="/projects/:id/done" component={StoriesDone} />
+      <PrivateRoute path="/projects/:id/members" component={MembersList} />
+      <PrivateRoute
+        path="/projects/:id/members/:memberId/edit"
+        component={MembersEdit}
+      />
+      <PrivateRoute path="/projects/:id/members/new" component={MembersNew} />
+      <PrivateRoute path="/projects/:id/stories/new" component={StoriesNew} />
+      <PrivateRoute
+        path="/projects/:projectId/stories/:id/edit"
+        component={StoriesEdit}
+      />
+      <PrivateRoute procted path="/projects/new" component={ProjectsNew} />
+      <PrivateRoute path="/projects/:id/edit" component={ProjectsEdit} />
+      <PrivateRoute
+        path="/stories/:storyId/comments/new"
+        component={CommentsNew}
+      />
+      <PrivateRoute
+        path="/stories/:storyId/comments/:id/edit"
+        component={CommentsEdit}
+      />
+      <PrivateRoute path="/stories/:storyId/tasks/new" component={TasksNew} />
+      <PrivateRoute
+        path="/stories/:storyId/tasks/:id/edit"
+        component={TasksEdit}
+      />
+      <PrivateRoute procted path="/projects" component={ProjectsList} />
     </Switch>
   </Router>
 )
 
 export default Routes
+export { history }
