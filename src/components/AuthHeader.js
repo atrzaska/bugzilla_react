@@ -11,7 +11,7 @@ const AuthHeader = () => {
         <img height="48" src="/images/bootstrap.svg" width="48" alt="pic" />
       </Link>
       {isLoggedIn() ? (
-        <Link v-if="isLoggedIn" className="btn btn-primary" to="/dashboard">
+        <Link className="btn btn-primary" to="/dashboard">
           Go to the dashboard
         </Link>
       ) : (
