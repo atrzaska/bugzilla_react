@@ -4,7 +4,7 @@ const getFieldAndValue = (e) => {
   const target = e.target
   const isCheckbox = target.type === 'checkbox'
   let value = isCheckbox ? target.checked : target.value
-  const field = target.id
+  const field = target.name || target.id
   return { field, value }
 }
 
