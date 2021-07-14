@@ -57,7 +57,7 @@ const clearCache = (url, options = {}) => {
   const { params } = options
   const cacheKey = JSON.stringify({ url, params })
 
-  return cache.delete(cacheKey)
+  return cache.delete(cacheKey) || true
 }
 
 const API = {
@@ -65,13 +65,17 @@ const API = {
   post: (url, data, options) => axios.post(url, data, withDefaults(options)),
   postMultipart: (url, data, options) =>
     axios.post(url, toFormData(data), withMultipart(options)),
-  put: (url, data, options) => axios.put(url, data, withDefaults(options)),
+  put: (url, data, options) =>
+    clearCache(url) && axios.put(url, data, withDefaults(options)),
   putMultipart: (url, data, options) =>
-    axios.put(url, toFormData(data), withMultipart(options)),
-  patch: (url, data, options) => axios.patch(url, data, withDefaults(options)),
+    clearCache(url) && axios.put(url, toFormData(data), withMultipart(options)),
+  patch: (url, data, options) =>
+    clearCache(url) && axios.patch(url, data, withDefaults(options)),
   patchMultipart: (url, data, options) =>
+    clearCache(url) &&
     axios.patch(url, toFormData(data), withMultipart(options)),
-  delete: (url, options) => axios.delete(url, withDefaults(options)),
+  delete: (url, options) =>
+    clearCache(url) && axios.delete(url, withDefaults(options)),
   clearCache,
 }
 
