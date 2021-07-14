@@ -12,6 +12,9 @@ const fetchAccessToken = () =>
         return Promise.reject(res)
       }
     })
-    .catch((err) => API.clearToken())
+    .catch((err) => {
+      API.clearToken()
+      window.location = '/signin'
+    })
 
 export default fetchAccessToken
