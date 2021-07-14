@@ -1,5 +1,11 @@
+import LegalLayout from 'src/layouts/Legal'
+
 const Help = () => {
-  return <h1>Help</h1>
+  return (
+    <LegalLayout>
+      <h1>Help</h1>
+    </LegalLayout>
+  )
 }
 
 export default Help

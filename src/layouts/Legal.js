@@ -1,7 +1,7 @@
 import React from 'react'
 import AuthHeader from 'src/components/AuthHeader'
 
-const Legal = () => {
+const Legal = ({ children }) => {
   document.body.className = 'bg-white'
 
   const appHost = 'bugzilla.nexxy.net'
@@ -13,7 +13,7 @@ const Legal = () => {
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <slot></slot>
+            {children}
             <div className="text-center my-4">
               <a className="btn btn-primary btn-lg" href={salesUrl}>
                 Contact sales
