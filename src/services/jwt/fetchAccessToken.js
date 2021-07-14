@@ -14,7 +14,7 @@ const fetchAccessToken = () =>
     })
     .catch((err) => {
       API.clearToken()
-      window.location = '/signin'
+      // window.location = '/signin'
     })
 
 export default fetchAccessToken
