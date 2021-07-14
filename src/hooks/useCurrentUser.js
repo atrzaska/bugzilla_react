@@ -4,15 +4,15 @@ import useObject from 'src/hooks/async/useObject'
 import API from 'src/services/requests'
 
 const useCurrentUser = (defaultValue = {}) => {
-  const { object: user, loading, setValue } = useObject(defaultValue)
+  const { value: user, loading, setObject } = useObject(defaultValue)
 
   useEffect(() => {
     API.fetchCurrentUser()
-      .then((res) => setValue(res.data))
-      .catch(() => setValue(defaultValue))
+      .then((res) => setObject(res.data))
+      .catch((err) => setObject(defaultValue))
   }, [])
 
-  const isLoggedIn = () => !!user.value.id
+  const isLoggedIn = () => !!user.id
 
   return { isLoggedIn, user, loading }
 }
