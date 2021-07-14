@@ -37,6 +37,8 @@ const TopPagination = ({ pagination }) => {
 
   useEffect(() => setInputValue(page.toString()), [page])
 
+  const setInputValueWrapped = (e) => setInputValue(e.target.value)
+
   if (!showPagination) {
     return null
   }
@@ -60,7 +62,7 @@ const TopPagination = ({ pagination }) => {
             type="text"
             className="form-control text-center"
             value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
+            onChange={setInputValueWrapped}
             onBlur={onPageChange}
             onKeyDown={onKeyDown}
           />
