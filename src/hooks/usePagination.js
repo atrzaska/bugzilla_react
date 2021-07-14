@@ -1,4 +1,4 @@
-import QueryParams from '@/services/QueryParams'
+import QueryParams from 'src/services/QueryParams'
 import { useState } from 'react'
 
 const SIZE = 10
@@ -10,13 +10,12 @@ const usePagination = (options = {}) => {
   const total = options.total
   const [page, setPage] = useState(defaultPage)
   const [offset, setOffset] = useState(0)
-  const totalPages = () => Math.ceil(total / size)
-  const showPagination = () => totalPages > 1
-  const hasPreviousPage = () => page > 1
-  const hasNextPage = () => page < totalPages
-  const pageLastItem = () => Math.min(page * size, total)
-  const pageFirstItem = () =>
-    collection.length === 0 ? 0 : (page - 1) * size + 1
+  const totalPages = Math.ceil(total / size)
+  const showPagination = totalPages > 1
+  const hasPreviousPage = page > 1
+  const hasNextPage = page < totalPages
+  const pageLastItem = Math.min(page * size, total)
+  const pageFirstItem = collection.length === 0 ? 0 : (page - 1) * size + 1
 
   const activePageClass = (val) => page === val && 'active'
 
