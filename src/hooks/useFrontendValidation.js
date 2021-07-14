@@ -31,11 +31,11 @@ const useFrontendValidation = ({ data, errors, schema }) => {
     try {
       schema.validateSync(data, { abortEarly: false })
       errors.setValue({})
+      return true
     } catch (err) {
       err.inner.forEach((error) => errors.setField(error.path, error.message))
+      return false
     }
-
-    return isValid()
   }
 
   return {
