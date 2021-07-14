@@ -1,7 +1,7 @@
-import { setState } from 'react'
+import { useState } from 'react'
 
 const useForm = ({ errors }) => {
-  const [isSubmitting, setIsisSubmitting] = setState(false)
+  const [isSubmitting, setIsisSubmitting] = useState(false)
 
   const submit = (promise) => {
     setIsisSubmitting(true)
