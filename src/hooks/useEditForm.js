@@ -1,9 +1,9 @@
 import { history } from 'src/router'
 import { useParams } from 'react-router-dom'
-import useForm from '@/hooks/useForm'
-import useFrontendValidation from '@/hooks/useFrontendValidation'
-import useObject from '@/hooks/async/useObject'
-import useValue from './useValue'
+import useForm from 'src/hooks/useForm'
+import useFrontendValidation from 'src/hooks/useFrontendValidation'
+import useObject from 'src/hooks/async/useObject'
+import useValue from 'src/hooks/useValue'
 
 const useEditForm = ({
   id,
