@@ -31,7 +31,6 @@ const Signup = () => {
           <input
             value={data.name}
             onChange={handleInput}
-            v-model="data.name"
             className={[
               'form-control',
               'rounded-0',
@@ -50,7 +49,6 @@ const Signup = () => {
           <input
             value={data.email}
             onChange={handleInput}
-            v-model="data.email"
             className={[
               'form-control',
               'rounded-0',
