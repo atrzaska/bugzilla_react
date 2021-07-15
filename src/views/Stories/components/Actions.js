@@ -78,7 +78,7 @@ const Actions = ({ story, updateStoryState, onDelete }) => {
           Edit
         </Link>
         <div className="dropdown-divider" />
-        <div className="dropdown-item" href="#" onClick={() => onDelete(story)}>
+        <div className="dropdown-item" onClick={() => onDelete(story)}>
           Remove
         </div>
       </div>
