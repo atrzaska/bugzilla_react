@@ -32,7 +32,7 @@ const Backlog = () => {
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h5>{project.name}</h5>
         <Link className="btn btn-primary" to={`/projects/${id}/stories/new`}>
-          New1
+          New
         </Link>
       </div>
       <ProjectTabs />
