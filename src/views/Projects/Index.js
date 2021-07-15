@@ -28,15 +28,18 @@ const SORT_OPTIONS = {
 const ProjectsIndex = () => {
   const defaultSorting = SORT_OPTIONS.id_desc.value
   const sorting = useSorting(defaultSorting)
-  const { collection, total, loading, setCollection } = useCollection()
+  const { collection, total, loading, setCollection, startLoading } =
+    useCollection()
   const pagination = usePagination({ collection, total })
   const { page } = pagination
   const { sort } = sorting
 
-  const fetchCollection = () =>
+  const fetchCollection = () => {
+    startLoading()
     API.fetchProjects({ page, sort }, { refresh: true }).then((res) =>
       setCollection(res.data)
     )
+  }
 
   const onDeleteConfirmed = (project) => {
     API.deleteProject(project.id).then((res) => {
