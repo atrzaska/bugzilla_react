@@ -8,6 +8,7 @@ const useSorting = (initialValue = '') => {
 
   useEffect(
     () => QueryParams.setWithDefault('sort', sort, initialValue),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [sort]
   )
 
