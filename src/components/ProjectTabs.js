@@ -5,7 +5,7 @@ const ProjectTabs = () => {
   const { id } = useParams()
 
   return (
-    <ul class="nav nav-tabs mb-3">
+    <ul className="nav nav-tabs mb-3">
       <Tab to={`/projects/${id}/current`}>Current</Tab>
       <Tab to={`/projects/${id}/backlog`}>Backlog</Tab>
       <Tab to={`/projects/${id}/icebox`}>Icebox</Tab>
