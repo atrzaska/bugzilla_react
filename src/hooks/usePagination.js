@@ -4,11 +4,11 @@ import { useState } from 'react'
 const SIZE = 10
 
 const usePagination = (options = {}) => {
-  const defaultPage = parseInt(QueryParams.get('page')) || 1
+  const initialPage = parseInt(QueryParams.get('page')) || 1
   const size = options.size || SIZE
   const collection = options.collection
   const total = options.total
-  const [page, setPage] = useState(defaultPage)
+  const [page, setPage] = useState(initialPage)
   const [offset, setOffset] = useState(0)
   const totalPages = Math.ceil(total / size)
   const showPagination = totalPages > 1
