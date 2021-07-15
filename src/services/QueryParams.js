@@ -9,6 +9,15 @@ const QueryParams = {
 
     window.history.pushState({}, '', url)
   },
+  setWithDefault: (key, value, defaultValue) =>
+    value === defaultValue
+      ? QueryParams.delete(key)
+      : QueryParams.set({ [key]: value }),
+  delete: (key) => {
+    const url = new URL(window.location)
+    url.searchParams.delete(key)
+    window.history.pushState({}, '', url)
+  },
 }
 
 export default QueryParams

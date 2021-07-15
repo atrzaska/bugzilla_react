@@ -6,7 +6,10 @@ const useSorting = (initialValue = '') => {
 
   const handleInputEvent = (e) => setSort(e.target.value)
 
-  useEffect(() => QueryParams.set({ sort }), [sort])
+  useEffect(
+    () => QueryParams.setWithDefault('sort', sort, initialValue),
+    [sort]
+  )
 
   return { sort, setSort, handleInputEvent }
 }
