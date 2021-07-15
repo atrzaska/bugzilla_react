@@ -36,7 +36,7 @@ const Terms = () => (
       <strong>Cookies</strong>
     </h3>
     <p>
-      <span class="me-1">
+      <span className="me-1">
         We employ the use of cookies. By accessing Bugzilla, you agreed to use
         cookies in agreement with the Bugzilla's
       </span>
@@ -208,7 +208,7 @@ const Terms = () => (
       <strong>Your Privacy</strong>
     </h3>
     <p>
-      <span class="me-1">Please read</span>
+      <span className="me-1">Please read</span>
       <router-link to="/privacy">Privacy Policy</router-link>
     </p>
     <h3>
