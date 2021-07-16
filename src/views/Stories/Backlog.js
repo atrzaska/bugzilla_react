@@ -5,6 +5,7 @@ import TopPagination from 'src/components/pagination/TopPagination'
 import Pagination from 'src/components/pagination/Pagination'
 import Loading from 'src/components/Loading'
 import Sort from 'src/components/Sort'
+import CollectionWithFallback from 'src/components/CollectionWithFallback'
 import Story from './components/Story'
 import Empty from './components/Empty'
 import { SORT_OPTIONS } from './helpers/sorting'
@@ -18,9 +19,9 @@ const filters = {
 const Backlog = () => {
   const {
     id,
+    data,
     project,
     collection,
-    loading,
     pagination,
     sorting,
     updateStoryState,
@@ -36,8 +37,7 @@ const Backlog = () => {
         </Link>
       </div>
       <ProjectTabs />
-      {loading && <Loading />}
-      {!loading && collection.length > 0 && (
+      <CollectionWithFallback data={data} Loading={Loading} Empty={Empty}>
         <div>
           <div className="d-flex justify-content-between align-items-center mb-3">
             <Sort model={sorting} options={SORT_OPTIONS} />
@@ -68,8 +68,7 @@ const Backlog = () => {
           </table>
           <Pagination pagination={pagination} />
         </div>
-      )}
-      {!loading && collection.length === 0 && <Empty />}
+      </CollectionWithFallback>
     </AppLayout>
   )
 }

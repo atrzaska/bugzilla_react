@@ -17,6 +17,7 @@ import useSorting from 'src/hooks/useSorting'
 import useCollection from 'src/hooks/async/useCollection'
 import React, { useEffect } from 'react'
 import useDidMountEffect from 'src/hooks/useDidMountEffect'
+import CollectionWithFallback from 'src/components/CollectionWithFallback'
 
 const SORT_OPTIONS = {
   id_desc: { name: 'Creation time: newest', value: 'id_desc' },
@@ -28,8 +29,8 @@ const SORT_OPTIONS = {
 const ProjectsIndex = () => {
   const defaultSorting = SORT_OPTIONS.id_desc.value
   const sorting = useSorting(defaultSorting)
-  const { collection, total, loading, setCollection, startLoading } =
-    useCollection()
+  const data = useCollection()
+  const { collection, total, setCollection, startLoading } = data
   const pagination = usePagination({ collection, total })
   const { page } = pagination
   const { sort } = sorting
@@ -65,74 +66,66 @@ const ProjectsIndex = () => {
           New
         </Link>
       </div>
-      {loading ? (
-        <Loading />
-      ) : (
-        <React.Fragment>
-          {collection.length ? (
-            <div>
-              <div className="d-flex justify-content-between align-items-center mb-3">
-                <Sort model={sorting} options={SORT_OPTIONS} />
-                <TopPagination pagination={pagination} />
-              </div>
-              <table className="table">
-                <thead>
-                  <tr>
-                    <th className="border-0">Name</th>
-                    <th className="border-0 w-1">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {collection.map((project) => (
-                    <tr key={project.id}>
-                      <td>
-                        <Link to={`/projects/${project.id}/current`}>
-                          {project.name}
+      <CollectionWithFallback data={data} Loading={Loading} Empty={Empty}>
+        <div>
+          <div className="d-flex justify-content-between align-items-center mb-3">
+            <Sort model={sorting} options={SORT_OPTIONS} />
+            <TopPagination pagination={pagination} />
+          </div>
+          <table className="table">
+            <thead>
+              <tr>
+                <th className="border-0">Name</th>
+                <th className="border-0 w-1">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {collection.map((project) => (
+                <tr key={project.id}>
+                  <td>
+                    <Link to={`/projects/${project.id}/current`}>
+                      {project.name}
+                    </Link>
+                  </td>
+                  <td>
+                    <div className="d-flex justify-content-end dropdown">
+                      <button
+                        className="btn btn-outline-secondary dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                      >
+                        <img src={threeDots} alt="pic" />
+                      </button>
+                      <div className="dropdown-menu dropdown-menu-end">
+                        <Link
+                          className="dropdown-item"
+                          to={`/projects/${project.id}/edit`}
+                        >
+                          Edit
                         </Link>
-                      </td>
-                      <td>
-                        <div className="d-flex justify-content-end dropdown">
-                          <button
-                            className="btn btn-outline-secondary dropdown-toggle"
-                            data-bs-toggle="dropdown"
-                          >
-                            <img src={threeDots} alt="pic" />
-                          </button>
-                          <div className="dropdown-menu dropdown-menu-end">
-                            <Link
-                              className="dropdown-item"
-                              to={`/projects/${project.id}/edit`}
-                            >
-                              Edit
-                            </Link>
-                            <div className="dropdown-divider" />
-                            <button
-                              className="dropdown-item"
-                              onClick={() => onDelete(project)}
-                            >
-                              Remove
-                            </button>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+                        <div className="dropdown-divider" />
+                        <button
+                          className="dropdown-item"
+                          onClick={() => onDelete(project)}
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
 
-              <div className="d-flex justify-content-between align-items-center">
-                <PageResults pagination={pagination} />
-                <AllegroPagination pagination={pagination} />
-              </div>
-              <CompactPagination pagination={pagination} />
-              <BootstrapPagination pagination={pagination} />
-              <Pagination pagination={pagination} />
-            </div>
-          ) : (
-            <Empty />
-          )}
-        </React.Fragment>
-      )}
+          <div className="d-flex justify-content-between align-items-center">
+            <PageResults pagination={pagination} />
+            <AllegroPagination pagination={pagination} />
+          </div>
+          <CompactPagination pagination={pagination} />
+          <BootstrapPagination pagination={pagination} />
+          <Pagination pagination={pagination} />
+        </div>
+      </CollectionWithFallback>
     </AppLayout>
   )
 }

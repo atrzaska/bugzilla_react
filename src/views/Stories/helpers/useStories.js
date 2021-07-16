@@ -11,8 +11,8 @@ const useStories = ({ filters }) => {
   const [project, setProject] = useState({})
   const sorting = useSorting(defaultSorting)
   const { id } = useParams()
-  const { collection, total, loading, setCollection, startLoading } =
-    useCollection()
+  const data = useCollection()
+  const { collection, total, loading, setCollection, startLoading } = data
   const pagination = usePagination({ collection, total })
   const { page } = pagination
   const { sort } = sorting
@@ -57,6 +57,7 @@ const useStories = ({ filters }) => {
 
   return {
     id,
+    data,
     project,
     collection,
     loading,
