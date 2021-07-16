@@ -28,7 +28,6 @@ const ProjectsEdit = () => {
       ) : (
         <Form onSubmit={onSubmit}>
           <Field
-            v-model="data.name"
             value={data.name}
             onChange={handleInputEvent}
             validation={validation}
