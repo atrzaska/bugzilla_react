@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import AuthLayout from 'src/layouts/Auth'
+import Form from 'src/components/form/Form'
 import useSignin from 'src/hooks/useSignin'
 
 const Signin = () => {
@@ -7,7 +8,7 @@ const Signin = () => {
 
   return (
     <AuthLayout>
-      <form className="form-signin bg-white p-4" onSubmit={signIn}>
+      <Form className="form-signin bg-white p-4" onSubmit={signIn}>
         <h3 className="mb-3 font-weight-normal">Sign in</h3>
         {error && (
           <div className="alert alert-danger">
@@ -67,7 +68,7 @@ const Signin = () => {
         >
           Didn't get confirmation email?
         </Link>
-      </form>
+      </Form>
     </AuthLayout>
   )
 }

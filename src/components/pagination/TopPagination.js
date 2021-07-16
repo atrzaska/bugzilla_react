@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Form from 'src/components/form/Form'
 
 const TopPagination = ({ pagination }) => {
   const {
@@ -13,8 +14,7 @@ const TopPagination = ({ pagination }) => {
   } = pagination
 
   const [inputValue, setInputValue] = useState(page.toString())
-  const onFormSubmit = (e) => {
-    e.preventDefault()
+  const onFormSubmit = () => {
     goToPage(page)
     setInputValue(page)
   }
@@ -57,7 +57,7 @@ const TopPagination = ({ pagination }) => {
         </div>
       )}
       <div className="col-2 me-2">
-        <form onSubmit={onFormSubmit}>
+        <Form onSubmit={onFormSubmit}>
           <input
             type="text"
             className="form-control text-center"
@@ -66,7 +66,7 @@ const TopPagination = ({ pagination }) => {
             onBlur={onPageChange}
             onKeyDown={onKeyDown}
           />
-        </form>
+        </Form>
       </div>
       <span>of {totalPages}</span>
       {hasNextPage ? (

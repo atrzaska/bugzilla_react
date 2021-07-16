@@ -1,4 +1,5 @@
 import AuthLayout from 'src/layouts/Auth'
+import Form from 'src/components/form/Form'
 import useSignup from 'src/hooks/useSignup'
 import useFrontendValidation from 'src/hooks/useFrontendValidation'
 import { signUpSchema as schema } from 'src/services/yup'
@@ -12,10 +13,7 @@ const Signup = () => {
       schema,
     })
 
-  const onSubmit = (e) => {
-    e.preventDefault()
-    validateForm() && signUp()
-  }
+  const onSubmit = () => validateForm() && signUp()
 
   const handleInput = (e) => {
     handleInputEvent(e)
@@ -24,7 +22,7 @@ const Signup = () => {
 
   return (
     <AuthLayout>
-      <form onSubmit={onSubmit} className="form-signin bg-white p-4">
+      <Form onSubmit={onSubmit} className="form-signin bg-white p-4">
         <h3 className="mb-3 font-weight-normal">Get started free today</h3>
         <p className="mb-4 text-secondary">No credit card required</p>
         <div className="mb-3">
@@ -148,7 +146,7 @@ const Signup = () => {
             )}
           </button>
         </div>
-      </form>
+      </Form>
     </AuthLayout>
   )
 }

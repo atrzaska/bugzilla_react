@@ -14,8 +14,7 @@ const useSignin = () => {
     rememberMe: false,
   })
 
-  const signIn = (e) => {
-    e.preventDefault()
+  const signIn = () => {
     setIsSubmitting(true)
     setError(false)
 

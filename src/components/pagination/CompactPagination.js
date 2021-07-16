@@ -36,7 +36,7 @@ const CompactPagination = ({ pagination }) => {
         </li>
         {hasNextPage ? (
           <li className="page-item">
-            <button onClick={nextPage} href="#" className="page-link">
+            <button onClick={nextPage} className="page-link">
               <i className="fas fa-chevron-right" />
             </button>
           </li>
