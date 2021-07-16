@@ -67,9 +67,7 @@ const StoriesNew = () => {
             <option value="chore">Chore</option>
             <option value="release">Release</option>
           </select>
-          <div v-if="errors.kind" className="invalid-feedback">
-            {errors.kind}
-          </div>
+          {errors.kind && <div className="invalid-feedback">{errors.kind}</div>}
         </div>
         <div className="mb-3">
           <label className="form-label" htmlFor="container">
@@ -86,9 +84,9 @@ const StoriesNew = () => {
             <option value="icebox">Icebox</option>
             <option value="backlog">Backlog</option>
           </select>
-          <div v-if="errors.container" className="invalid-feedback">
-            {errors.container}
-          </div>
+          {errors.container && (
+            <div className="invalid-feedback">{errors.container}</div>
+          )}
         </div>
         <hr />
         <FormButtons
