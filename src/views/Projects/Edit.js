@@ -38,7 +38,7 @@ const ProjectsEdit = () => {
             validation={validation}
             id="name"
             label="Name"
-            autofocus
+            autoFocus
           />
           <hr />
           <FormButtons

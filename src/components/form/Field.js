@@ -11,7 +11,7 @@ const Field = ({
   labelClass = 'form-label',
   inputClass = 'form-control',
   errorClass = 'invalid-feedback',
-  autofocus = false,
+  autoFocus = false,
 }) => {
   const field = fieldParam || id
 
@@ -32,7 +32,7 @@ const Field = ({
         id={id}
         placeholder={placeholder || label}
         type={type}
-        autoFocus={autofocus}
+        autoFocus={autoFocus}
       />
       {validation.errors.value[field] && (
         <div className={errorClass}>{validation.errors.value[field]}</div>
