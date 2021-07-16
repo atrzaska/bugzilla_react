@@ -5,6 +5,7 @@ import FormButtons from 'src/components/form/FormButtons'
 import { projectSchema as schema } from 'src/services/yup'
 import API from 'src/services/requests'
 import useValue from 'src/hooks/useValue'
+import Form from 'src/components/form/Form'
 
 const ProjectsNew = () => {
   const { value: data, handleInputEvent } = useValue({ name: '' })
@@ -16,15 +17,10 @@ const ProjectsNew = () => {
     successRedirectPath: '/projects',
   })
 
-  const onSubmitWrapper = (e) => {
-    e.preventDefault()
-    onSubmit()
-  }
-
   return (
     <AppLayout>
       <h1 className="mb-4">New Project</h1>
-      <form onSubmit={onSubmitWrapper}>
+      <Form onSubmit={onSubmit}>
         <Field
           value={data.name}
           onChange={handleInputEvent}
@@ -39,7 +35,7 @@ const ProjectsNew = () => {
           isSubmitting={isSubmitting}
           backLink="/projects"
         />
-      </form>
+      </Form>
     </AppLayout>
   )
 }

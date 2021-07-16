@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom'
 import AppLayout from 'src/layouts/App'
+import Form from 'src/components/form/Form'
 import Field from 'src/components/form/Field'
 import FormButtons from 'src/components/form/FormButtons'
 import useNewForm from 'src/hooks/useNewForm'
@@ -32,15 +33,10 @@ const StoriesNew = () => {
     successRedirectPath: `/projects/${id}/current`,
   })
 
-  const onSubmitWrapped = (e) => {
-    e.preventDefault()
-    onSubmit()
-  }
-
   return (
     <AppLayout>
       <h1 className="mb-4">New Story</h1>
-      <form onSubmit={onSubmitWrapped}>
+      <Form onSubmit={onSubmit}>
         <Field
           value={data.name}
           onChange={handleInputEvent}
@@ -100,7 +96,7 @@ const StoriesNew = () => {
           isSubmitting={isSubmitting}
           backLink={`/projects/${id}/current`}
         />
-      </form>
+      </Form>
     </AppLayout>
   )
 }

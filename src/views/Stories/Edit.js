@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import AppLayout from 'src/layouts/App'
 import Loading from 'src/components/Loading'
 import LoadMore from 'src/components/pagination/LoadMore'
+import Form from 'src/components/form/Form'
 import Field from 'src/components/form/Field'
 import FormButtons from 'src/components/form/FormButtons'
 import useEditForm from 'src/hooks/useEditForm'
@@ -113,18 +114,13 @@ const StoriesEdit = () => {
       onConfirm: () => onDeleteTaskConfirmed(task),
     })
 
-  const onSubmitWrapped = (e) => {
-    e.preventDefault()
-    onSubmit()
-  }
-
   return (
     <AppLayout>
       <h1 className="mb-4">Edit Story</h1>
       {loading ? (
         <Loading />
       ) : (
-        <form onSubmit={onSubmitWrapped}>
+        <Form onSubmit={onSubmit}>
           <Field
             value={data.name}
             onChange={handleInputEvent}
@@ -184,7 +180,7 @@ const StoriesEdit = () => {
             isSubmitting={isSubmitting}
             backLink={routes.currentStoriesPath()}
           />
-        </form>
+        </Form>
       )}
       <hr />
       <h5>Comments</h5>
