@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import AppLayout from 'src/layouts/App'
 import Loading from 'src/components/Loading'
@@ -5,14 +6,15 @@ import LoadMore from 'src/components/pagination/LoadMore'
 import Form from 'src/components/form/Form'
 import Field from 'src/components/form/Field'
 import FormButtons from 'src/components/form/FormButtons'
+import CollectionWithFallback from 'src/components/CollectionWithFallback'
+import TasksEmpty from './components/TasksEmpty'
+import CommentsEmpty from './components/CommentsEmpty'
+import useObject from 'src/hooks/async/useObject'
+import useCollection from 'src/hooks/async/useCollection'
 import useEditForm from 'src/hooks/useEditForm'
+import useLoadMorePagination from 'src/hooks/useLoadMorePagination'
 import { storySchema as schema } from 'src/services/yup'
 import API from 'src/services/requests'
-import useCollection from 'src/hooks/async/useCollection'
-import useLoadMorePagination from 'src/hooks/useLoadMorePagination'
-import useObject from 'src/hooks/async/useObject'
-import { useEffect } from 'react'
-import CollectionWithFallback from 'src/components/CollectionWithFallback'
 
 const StoriesEdit = () => {
   const { projectId, id } = useParams()
@@ -142,7 +144,7 @@ const StoriesEdit = () => {
             </label>
             <select
               value={data.kind}
-              onChanege={handleInputEvent}
+              onChange={handleInputEvent}
               className={['form-select', invalidFieldClass('kind')].join(' ')}
               id="kind"
             >
@@ -187,7 +189,7 @@ const StoriesEdit = () => {
       <CollectionWithFallback
         data={commentsData}
         Loading={Loading}
-        Empty={<div className="text-center">No Comments</div>}
+        Empty={CommentsEmpty}
       >
         <div>
           <div className="list-group border-0 mb-3">
@@ -216,7 +218,7 @@ const StoriesEdit = () => {
       <CollectionWithFallback
         data={tasksData}
         Loading={Loading}
-        Empty={<div className="text-center">No Tasks</div>}
+        Empty={TasksEmpty}
       >
         <div>
           <div className="list-group border-0 mb-3">
