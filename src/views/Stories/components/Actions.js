@@ -9,67 +9,67 @@ const Actions = ({ story, updateStoryState, onDelete }) => {
   return (
     <div className="btn-group">
       {story.state === 'unstarted' && (
-        <div
+        <button
           className="btn btn-outline-secondary d-flex align-items-center"
           onClick={() => updateStoryState(story, 'started')}
         >
           Start
-        </div>
+        </button>
       )}
       {story.state === 'started' && (
-        <div
+        <button
           className="btn btn-outline-secondary d-flex align-items-center"
           onClick={() => updateStoryState(story, 'finished')}
         >
           Finish
-        </div>
+        </button>
       )}
       {story.state === 'finished' && (
-        <div
+        <button
           className="btn btn-outline-secondary d-flex align-items-center"
           onClick={() => updateStoryState(story, 'delivered')}
         >
           Deliver
-        </div>
+        </button>
       )}
       {story.state === 'delivered' && (
-        <div
+        <button
           className="btn btn-outline-secondary d-flex align-items-center"
           onClick={() => updateStoryState(story, 'accepted')}
         >
           Accept
-        </div>
+        </button>
       )}
       {story.state === 'delivered' && (
-        <div
+        <button
           className="btn btn-outline-secondary d-flex align-items-center"
           onClick={() => updateStoryState(story, 'rejected')}
         >
           Reject
-        </div>
+        </button>
       )}
       {story.state === 'rejected' && (
-        <div
+        <button
           className="btn btn-outline-secondary d-flex align-items-center"
           onClick={() => updateStoryState(story, 'unstarted')}
         >
           Restart
-        </div>
+        </button>
       )}
       {story.state === 'accepted' && (
-        <div
+        <button
           className="btn btn-outline-secondary d-flex align-items-center"
           onClick={() => updateStoryState(story, 'unstarted')}
         >
           Restart
-        </div>
+        </button>
       )}
-      <div
+      <button
         className="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
         data-bs-toggle="dropdown"
       >
         <img src={threeDots} alt="pic" />
-      </div>
+      </button>
       <div className="dropdown-menu dropdown-menu-end">
         <Link
           className="dropdown-item"
@@ -78,9 +78,9 @@ const Actions = ({ story, updateStoryState, onDelete }) => {
           Edit
         </Link>
         <div className="dropdown-divider" />
-        <div className="dropdown-item" onClick={() => onDelete(story)}>
+        <button className="dropdown-item" onClick={() => onDelete(story)}>
           Remove
-        </div>
+        </button>
       </div>
     </div>
   )
