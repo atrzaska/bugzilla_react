@@ -5,7 +5,7 @@ const getFieldAndValue = (e) => {
   const target = e.target
   const isCheckbox = target.type === 'checkbox'
   let value = isCheckbox ? target.checked : target.value
-  const field = target.id
+  const field = target.name || target.id
   return { field, value }
 }
 
@@ -15,7 +15,7 @@ const useFrontendValidation = ({ data, errors, schema }) => {
   const isValid = () => Object.keys(errors.value).length === 0
 
   const invalidFieldClass = (field) =>
-    invalidFields().includes(field) && 'is-invalid'
+    invalidFields().includes(field) ? 'is-invalid' : ''
 
   const validateField = (e) => {
     const { field, value } = getFieldAndValue(e)
