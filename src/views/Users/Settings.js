@@ -3,12 +3,14 @@ import PersonalSettingsForm from './components/PersonalSettingsForm'
 import ChangePasswordForm from './components/ChangePasswordForm'
 import EmailForm from './components/EmailForm'
 import API from 'src/services/requests'
+import { history } from 'src/router'
 
 const Settings = () => {
   const onCancelAccountConfirmed = () =>
     API.deleteCurrentUser().then(() => {
       window.Toast.success(`Account deleted successfully.`)
       API.clearToken()
+      history.push('/')
     })
 
   const onCancelAccount = () =>
