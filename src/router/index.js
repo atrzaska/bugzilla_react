@@ -67,12 +67,12 @@ const Routes = () => (
       <PrivateRoute path="/projects/:id/backlog" component={StoriesBacklog} />
       <PrivateRoute path="/projects/:id/icebox" component={StoriesIcebox} />
       <PrivateRoute procted path="/projects/:id/done" component={StoriesDone} />
-      <PrivateRoute path="/projects/:id/members" component={MembersList} />
       <PrivateRoute
         path="/projects/:id/members/:memberId/edit"
         component={MembersEdit}
       />
       <PrivateRoute path="/projects/:id/members/new" component={MembersNew} />
+      <PrivateRoute path="/projects/:id/members" component={MembersList} />
       <PrivateRoute path="/projects/:id/stories/new" component={StoriesNew} />
       <PrivateRoute
         path="/projects/:projectId/stories/:id/edit"
