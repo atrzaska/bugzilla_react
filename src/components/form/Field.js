@@ -3,7 +3,7 @@ const Field = ({
   onChange,
   validation,
   id,
-  field: fieldParam,
+  name,
   placeholder,
   label,
   type = 'text',
@@ -13,8 +13,7 @@ const Field = ({
   errorClass = 'invalid-feedback',
   autoFocus = false,
 }) => {
-  const field = fieldParam || id
-
+  const field = name || id
   const onChangeWrapped = (e) => {
     validation.validateField(e)
     onChange(e)
@@ -30,6 +29,7 @@ const Field = ({
         onChange={onChangeWrapped}
         className={[inputClass, validation.invalidFieldClass(field)].join(' ')}
         id={id}
+        name={field}
         placeholder={placeholder || label}
         type={type}
         autoFocus={autoFocus}
