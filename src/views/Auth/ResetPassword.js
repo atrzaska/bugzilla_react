@@ -42,9 +42,9 @@ const ResetPassword = () => {
   return (
     <AuthLayout>
       {loading ? (
-        <Loading v-if="loading" />
+        <Loading />
       ) : (
-        <Form v-else onSubmit={onSubmit} className="form-signin bg-white p-4">
+        <Form onSubmit={onSubmit} className="form-signin bg-white p-4">
           <h3 className="mb-3 font-weight-normal">Password Recovery</h3>
           <p className="mb-4 text-secondary">Enter your new password.</p>
           <div className="mb-3">
