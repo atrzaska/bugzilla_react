@@ -26,9 +26,14 @@ const TasksNew = () => {
     successRedirectPath: backPath,
   })
 
+  const handleInput = (e) => {
+    handleInputEvent(e)
+    validation.validateField(e)
+  }
+
   return (
     <AppLayout>
-      <h1 class="mb-4">New Task</h1>
+      <h1 className="mb-4">New Task</h1>
       <Form onSubmit={onSubmit}>
         <TextArea
           value={data.description}
@@ -38,20 +43,20 @@ const TasksNew = () => {
           placeholder="Description"
           autoFocus
         />
-        <div class="mb-3">
-          <div class="form-check">
+        <div className="mb-3">
+          <div className="form-check">
             <input
-              value={data.complete}
-              onChange={handleInputEvent}
+              checked={data.complete}
+              onChange={handleInput}
               id="complete"
               type="checkbox"
-              class="form-check-input"
+              className="form-check-input"
             />
-            <label htmlFor="complete" class="form-check-label">
+            <label htmlFor="complete" className="form-check-label">
               Complete
             </label>
-            {errors.complete && (
-              <div class="invalid-feedback">{errors.complete}</div>
+            {errors.value.complete && (
+              <div className="invalid-feedback">{errors.value.complete}</div>
             )}
           </div>
         </div>

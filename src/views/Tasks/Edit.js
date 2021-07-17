@@ -41,7 +41,7 @@ const TasksEdit = () => {
           <div className="mb-3">
             <div className="form-check">
               <input
-                value={data.complete}
+                checked={data.complete}
                 onChange={handleInputEvent}
                 id="complete"
                 type="checkbox"
@@ -50,8 +50,8 @@ const TasksEdit = () => {
               <label htmlFor="complete" className="form-check-label">
                 Complete
               </label>
-              {errors.content && (
-                <div className="invalid-feedback">{errors.complete}</div>
+              {errors.value.complete && (
+                <div className="invalid-feedback">{errors.value.complete}</div>
               )}
             </div>
           </div>

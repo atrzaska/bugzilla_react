@@ -33,6 +33,11 @@ const StoriesNew = () => {
     successRedirectPath: `/projects/${id}/current`,
   })
 
+  const handleInput = (e) => {
+    handleInputEvent(e)
+    validation.validateField(e)
+  }
+
   return (
     <AppLayout>
       <h1 className="mb-4">New Story</h1>
@@ -59,7 +64,7 @@ const StoriesNew = () => {
           <select
             value={data.kind}
             className={['form-select', invalidFieldClass('kind')].join(' ')}
-            onChange={handleInputEvent}
+            onChange={handleInput}
             id="kind"
           >
             <option value="feature">Feature</option>
@@ -67,7 +72,9 @@ const StoriesNew = () => {
             <option value="chore">Chore</option>
             <option value="release">Release</option>
           </select>
-          {errors.kind && <div className="invalid-feedback">{errors.kind}</div>}
+          {errors.value.kind && (
+            <div className="invalid-feedback">{errors.value.kind}</div>
+          )}
         </div>
         <div className="mb-3">
           <label className="form-label" htmlFor="container">
@@ -78,14 +85,14 @@ const StoriesNew = () => {
             className={['form-select', invalidFieldClass('container')].join(
               ' '
             )}
-            onChange={handleInputEvent}
+            onChange={handleInput}
             id="container"
           >
             <option value="icebox">Icebox</option>
             <option value="backlog">Backlog</option>
           </select>
-          {errors.container && (
-            <div className="invalid-feedback">{errors.container}</div>
+          {errors.value.container && (
+            <div className="invalid-feedback">{errors.value.container}</div>
           )}
         </div>
         <hr />
