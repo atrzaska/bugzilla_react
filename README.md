@@ -1,70 +1,97 @@
-# Getting Started with Create React App
+# Bugzilla
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to Bugzilla!
 
-## Available Scripts
+The goal of this project is to take various concepts of web software design and apply them in a react application. This application is a rework of https://github.com/atrzaska/bugzilla_vue form vue to react.
 
-In the project directory, you can run:
+## Project description
 
-### `yarn start`
+Bugzilla is a simple project management solution similar to Pivotaltracker.
+In bugzilla you can create projects, which have stories.
+Each story can have tasks and comments.
+Story also has status from `started` to `finished`.
+Project owners can also invite other users (registered or unregistered).
+Invitation emails are sent to invited users asking them to join the project.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Tech stack
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- react 17
+- react router
+- bootstrap 5
+- axios api
+- yup validation
 
-### `yarn test`
+## Development Requirements
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- react 17
+- nodejs
+- yarn
+- direnv
 
-### `yarn build`
+To install them run:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    brew install nodejs direnv yarn
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Backend API for this Single Page Application
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This application is using backend API https://github.com/atrzaska/bugzilla_api. It will not work without it.
 
-### `yarn eject`
+## Development Setup
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    direnv allow
+    yarn && yarn serve
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Now you can visit [`localhost:3000`](http://localhost:3000) from your browser.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## What is implemented
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- auth system
+    - login
+    - registration
+    - email confirmation
+    - password recovery via email
+    - resend confirmation instructions via email
+    - cancel account from profile settings
+    - update email from profile settings with reconfirmation via email
+    - update password in profile settings
+- project member invitation system via email
+- design based on customized `Bootstrap 5`
+- user role system with access management
+- story state system
 
-## Learn More
+Pages/components:
+- product page with product layout
+- signin page
+- signup page
+- send reset password email page
+- reset password page
+- resend confirmation email page
+- terms page
+- privacy page
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- profile settings page
+- projects list/new/edit pages
+- delete project modal
+- stories list (current, backlog, icebox, done) pages
+- stories new/edit page
+- delete story modal
+- members list
+- invite new member page
+- delete member confirmation modal
+- leave project confirmation modal
+- change role of member page
+- header with profile menu
+- sidebar with app modules
+- logged in app pages with app layout
+- auth pages with auth layout
+- bootstrap 5 toast component
+- bootstrap 5 modal component
+- live validations using bootstrap and yup
+- backend validation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Available commands
+```
+yarn start
+yarn build
+yarn test
+```
