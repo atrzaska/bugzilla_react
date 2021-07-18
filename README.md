@@ -24,7 +24,7 @@ Invitation emails are sent to invited users asking them to join the project.
 ## Development Requirements
 
 - react 17
-- nodejs
+- nodejs 14
 - yarn
 - direnv
 
