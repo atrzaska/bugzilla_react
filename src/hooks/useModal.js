@@ -1,25 +1,27 @@
 import useValue from 'src/hooks/useValue'
 
 const useModal = () => {
-  const { value: modal, setField } = useValue({
+  const { value: modal, setFields } = useValue({
     show: false,
     title: 'Modal title',
     body: 'Modal message',
     showCancel: true,
     confirm: 'Confirm',
-    onClose: () => setField('show', false),
+    onClose: () => setFields({ show: false }),
     onConfirm: () => modal.onClose(),
   })
 
   const show = (options) => {
-    setField('show', true)
-    setField('title', options.title || '')
-    setField('body', options.body || '')
-    setField('showCancel', options.showCancel || true)
-    setField('confirm', options.confirm || 'Confirm')
-    setField('onConfirm', () => {
-      modal.onClose()
-      options.onConfirm && options.onConfirm()
+    setFields({
+      show: true,
+      title: options.title || '',
+      body: options.body || '',
+      showCancel: options.showCancel || true,
+      confirm: options.confirm || 'Confirm',
+      onConfirm: () => {
+        modal.onClose()
+        options.onConfirm && options.onConfirm()
+      },
     })
   }
 

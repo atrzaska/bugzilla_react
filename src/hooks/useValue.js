@@ -11,19 +11,23 @@ const getFieldAndValue = (e) => {
 const useValue = (initialState = {}) => {
   const [value, setValue] = useState(initialState)
 
-  const setField = (field, value) => {
+  const setFields = (params) => {
     setValue((state) => {
       const obj = { ...state }
 
-      if (value == null) {
-        delete obj[field]
-      } else {
-        obj[field] = value
+      for (const [field, value] of Object.entries(params)) {
+        if (value == null) {
+          delete obj[field]
+        } else {
+          obj[field] = value
+        }
       }
 
       return obj
     })
   }
+
+  const setField = (field, value) => setFields({ [field]: value })
 
   const handleInputEvent = (e) => {
     const { field, value } = getFieldAndValue(e)
@@ -31,7 +35,7 @@ const useValue = (initialState = {}) => {
     setField(field, value)
   }
 
-  return { value, handleInputEvent, setField, setValue }
+  return { value, handleInputEvent, setField, setFields, setValue }
 }
 
 export default useValue
