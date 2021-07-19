@@ -1,14 +1,11 @@
 import React from 'react'
+import useDidMountEffect from 'src/hooks/useDidMountEffect'
 
 const PLACEMENTS = {
   left: {
-    enterClass: 'slideInLeft',
-    leaveClass: 'slideOutLeft',
     wrapperClass: 'b-side-drawer',
   },
   right: {
-    enterClass: 'slideInRight',
-    leaveClass: 'slideOutRight',
     wrapperClass: 'b-side-drawer b-side-drawer-right',
   },
 }
@@ -25,20 +22,37 @@ const SideDrawer = ({
 }) => {
   const placement = right ? PLACEMENTS.right : PLACEMENTS.left
 
+  const animate = () => {
+    document.getElementById('sideDrawerBackdrop')?.classList?.toggle('show')
+    document
+      .getElementById('sideDrawerWrapper')
+      ?.classList?.toggle('b-side-drawer-active')
+  }
+
+  useDidMountEffect(animate, [show])
+
+  const onCloseWrapped = () => {
+    animate()
+    setTimeout(onClose, 400)
+  }
+
   return (
     <React.Fragment>
       {show && backdrop && (
-        <div className="modal-backdrop fade show" onClick={onClose} />
+        <div
+          id="sideDrawerBackdrop"
+          className="modal-backdrop fade"
+          onClick={onCloseWrapped}
+        />
       )}
       {show && (
         <div
+          id="sideDrawerWrapper"
           className={[
             'shadow',
             'bg-white',
             'h-100',
-            'animated',
             placement.wrapperClass,
-            placement.enterClass,
           ].join(' ')}
           style={{ width }}
         >
@@ -51,7 +65,7 @@ const SideDrawer = ({
                 type="button"
                 className="btn-close"
                 aria-label="Close"
-                onClick={onClose}
+                onClick={onCloseWrapped}
               />
             </header>
           )}

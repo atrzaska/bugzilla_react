@@ -1,9 +1,27 @@
 import useModal from 'src/hooks/useModal'
 import React from 'react'
+import useDidMountEffect from 'src/hooks/useDidMountEffect'
 
 const Modal = () => {
   const { Modal, modal } = useModal()
   window.Modal = Modal
+
+  const animate = () => {
+    document.getElementById('modalBackdrop')?.classList?.toggle('show')
+    document.getElementById('modal')?.classList?.toggle('show')
+  }
+
+  useDidMountEffect(animate, [modal.show])
+
+  const onCloseWrapped = () => {
+    animate()
+    setTimeout(modal.onClose, 400)
+  }
+
+  const onConfirmWrapped = () => {
+    animate()
+    setTimeout(modal.onConfirm, 400)
+  }
 
   if (!modal.show) {
     return null
@@ -11,13 +29,13 @@ const Modal = () => {
 
   return (
     <React.Fragment>
-      <div className="modal-backdrop fade show" />
+      <div id="modalBackdrop" className="modal-backdrop fade" />
       <div
-        className="modal fade show"
-        id="exampleModal"
+        className="modal fade"
+        id="modal"
         tabIndex="-1"
         role="dialog"
-        aria-labelledby="exampleModalLabel"
+        aria-labelledby="modalLabel"
         aria-hidden="true"
       >
         <div className="modal-dialog modal-dialog-centered" role="document">
@@ -32,7 +50,7 @@ const Modal = () => {
                   className="btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Close"
-                  onClick={modal.onClose}
+                  onClick={onCloseWrapped}
                 />
               </div>
             )}
@@ -43,7 +61,7 @@ const Modal = () => {
                   <button
                     type="button"
                     className="btn btn-outline-secondary"
-                    onClick={modal.onClose}
+                    onClick={onCloseWrapped}
                   >
                     Cancel
                   </button>
@@ -51,7 +69,7 @@ const Modal = () => {
                 <button
                   type="button"
                   className="btn btn-primary"
-                  onClick={modal.onConfirm}
+                  onClick={onConfirmWrapped}
                 >
                   {modal.confirm}
                 </button>

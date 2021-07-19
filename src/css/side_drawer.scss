@@ -9,9 +9,18 @@
   top: 0;
   left: 0;
   right: auto;
+  transition: transform .4s ease-in-out;
+  will-change: transform;
+  transform: translateX(-100%);
+}
+
+.b-side-drawer-active {
+  transform: translateX(0) !important;
 }
 
 .b-side-drawer-right {
   right: 0;
   left: auto;
+  transform: translateX(100%);
 }
+

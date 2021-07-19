@@ -20,6 +20,8 @@ const MySideDrawer = () => {
         title="My side drawer 2"
         show={drawer.show}
         onClose={drawer.close}
+        right
+        backdrop
       >
         <div className="px-3 py-2">
           <p>
