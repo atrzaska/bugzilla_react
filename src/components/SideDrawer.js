@@ -3,10 +3,10 @@ import useDidMountEffect from 'src/hooks/useDidMountEffect'
 
 const PLACEMENTS = {
   left: {
-    wrapperClass: 'b-side-drawer',
+    wrapperClass: 'side-drawer',
   },
   right: {
-    wrapperClass: 'b-side-drawer b-side-drawer-right',
+    wrapperClass: 'side-drawer side-drawer-right',
   },
 }
 
@@ -26,7 +26,7 @@ const SideDrawer = ({
     document.getElementById('sideDrawerBackdrop')?.classList?.toggle('show')
     document
       .getElementById('sideDrawerWrapper')
-      ?.classList?.toggle('b-side-drawer-active')
+      ?.classList?.toggle('side-drawer-active')
   }
 
   useDidMountEffect(animate, [show])
