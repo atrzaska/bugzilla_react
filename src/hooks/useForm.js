@@ -1,18 +1,18 @@
 import { useState } from 'react'
 
 const useForm = ({ errors }) => {
-  const [isSubmitting, setIsisSubmitting] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const submit = (promise) => {
-    setIsisSubmitting(true)
+    setIsSubmitting(true)
     errors.setValue([])
     return promise
       .then((res) => {
-        setIsisSubmitting(false)
+        setIsSubmitting(false)
         return res
       })
       .catch((err) => {
-        setIsisSubmitting(false)
+        setIsSubmitting(false)
 
         if (err.response.status === 422) {
           errors.setValue(err.response.data.errors)

@@ -17,7 +17,7 @@ const usePagination = (options = {}) => {
   const pageLastItem = Math.min(page * size, total)
   const pageFirstItem = collection.length === 0 ? 0 : (page - 1) * size + 1
 
-  const activePageClass = (val) => page === val && 'active'
+  const activePageClass = (val) => (page === val ? 'active' : '')
 
   const goToPage = (val) => {
     if (isNaN(val) || val > totalPages || val < 1) {
