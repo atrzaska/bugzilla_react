@@ -1,3 +1,6 @@
+.git
+Dockerfile
+.dockerignore
 /node_modules
 /.pnp
 .pnp.js
