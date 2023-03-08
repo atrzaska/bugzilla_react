@@ -5,7 +5,7 @@ const Empty = () => {
   const { id } = useParams()
 
   return (
-    <React.Fragment>
+    <>
       <h1 className="text-center text-secondary p-4">
         This project does not have any members yet
       </h1>
@@ -14,7 +14,7 @@ const Empty = () => {
           Create member
         </Link>
       </div>
-    </React.Fragment>
+    </>
   )
 }
 

@@ -28,7 +28,7 @@ const Modal = () => {
   }
 
   return (
-    <React.Fragment>
+    <>
       <div id="modalBackdrop" className="modal-backdrop fade" />
       <div
         className="modal fade"
@@ -78,7 +78,7 @@ const Modal = () => {
           </div>
         </div>
       </div>
-    </React.Fragment>
+    </>
   )
 }
 

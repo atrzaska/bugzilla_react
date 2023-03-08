@@ -8,7 +8,7 @@ const Legal = ({ children }) => {
   const salesUrl = `mailto://sales@${appHost}`
 
   return (
-    <React.Fragment>
+    <>
       <AuthHeader />
       <div className="container">
         <div className="row">
@@ -22,7 +22,7 @@ const Legal = ({ children }) => {
           </div>
         </div>
       </div>
-    </React.Fragment>
+    </>
   )
 }
 

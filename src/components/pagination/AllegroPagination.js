@@ -33,7 +33,7 @@ const AllegroPagination = ({ pagination }) => {
         )}
 
         {totalPages <= 7 ? (
-          <React.Fragment>
+          <>
             <Li show={totalPages >= 1} page={1} pagination={pagination} />
             <Li show={totalPages >= 2} page={2} pagination={pagination} />
             <Li show={totalPages >= 3} page={3} pagination={pagination} />
@@ -41,9 +41,9 @@ const AllegroPagination = ({ pagination }) => {
             <Li show={totalPages >= 5} page={5} pagination={pagination} />
             <Li show={totalPages >= 6} page={6} pagination={pagination} />
             <Li show={totalPages >= 7} page={7} pagination={pagination} />
-          </React.Fragment>
+          </>
         ) : (
-          <React.Fragment>
+          <>
             <Li show={isBeginning} page={1} pagination={pagination} />
             <Li show={isBeginning} page={2} pagination={pagination} />
             <Li show={isBeginning} page={3} pagination={pagination} />
@@ -67,7 +67,7 @@ const AllegroPagination = ({ pagination }) => {
             <Li show={isEnd} page={totalPages - 2} pagination={pagination} />
             <Li show={isEnd} page={totalPages - 1} pagination={pagination} />
             <Li show={isEnd} page={totalPages} pagination={pagination} />
-          </React.Fragment>
+          </>
         )}
 
         <li className="page-item disabled">

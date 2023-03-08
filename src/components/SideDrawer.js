@@ -37,7 +37,7 @@ const SideDrawer = ({
   }
 
   return (
-    <React.Fragment>
+    <>
       {show && backdrop && (
         <div
           id="sideDrawerBackdrop"
@@ -57,7 +57,7 @@ const SideDrawer = ({
           style={{ width }}
         >
           {noHeader ? (
-            <React.Fragment />
+            < />
           ) : (
             <header className="d-flex align-items-center justify-content-between p-3">
               <h5 className="mb-0">{title}</h5>
@@ -72,7 +72,7 @@ const SideDrawer = ({
           <div className="content">{children}</div>
         </div>
       )}
-    </React.Fragment>
+    </>
   )
 }
 

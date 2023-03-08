@@ -6,7 +6,7 @@ const App = ({ children }) => {
   document.body.className = 'bg-light'
 
   return (
-    <React.Fragment>
+    <>
       <Header />
       <Sidebar />
       <div className="wrapper">
@@ -22,7 +22,7 @@ const App = ({ children }) => {
           </div>
         </div>
       </div>
-    </React.Fragment>
+    </>
   )
 }
 

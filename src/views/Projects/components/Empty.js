@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Empty = () => (
-  <React.Fragment>
+  <>
     <h5 className="text-center text-secondary p-4">
       You don't have any projects yet
     </h5>
@@ -11,7 +11,7 @@ const Empty = () => (
         Create project
       </Link>
     </div>
-  </React.Fragment>
+  </>
 )
 
 export default Empty

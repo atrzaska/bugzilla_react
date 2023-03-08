@@ -5,7 +5,7 @@ const Empty = () => {
   const { id } = useParams()
 
   return (
-    <React.Fragment>
+    <>
       <h5 className="text-center text-secondary p-4">
         You don't have any stories yet
       </h5>
@@ -14,7 +14,7 @@ const Empty = () => {
           Create story
         </Link>
       </div>
-    </React.Fragment>
+    </>
   )
 }
 

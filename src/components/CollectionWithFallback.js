@@ -9,7 +9,7 @@ const CollectionWithFallback = ({ data, Loading, Empty, children }) => {
     return <Empty />
   }
 
-  return <React.Fragment>{children}</React.Fragment>
+  return <>{children}</>
 }
 
 export default CollectionWithFallback

@@ -6,7 +6,7 @@ const MySideDrawer = () => {
   const drawer = useSideDrawer()
 
   return (
-    <React.Fragment>
+    <>
       <div className="d-flex justify-content-center py-3">
         <button
           onClick={drawer.open}
@@ -60,7 +60,7 @@ const MySideDrawer = () => {
           />
         </div>
       </SideDrawer>
-    </React.Fragment>
+    </>
   )
 }
 

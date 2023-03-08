@@ -8,7 +8,7 @@ const Landing = ({ children }) => {
   document.body.className = 'bg-white'
 
   return (
-    <React.Fragment>
+    <>
       <header className="d-flex align-items-center p-4">
         <Link className="me-4" to="/">
           <img height="48" src="/images/bootstrap.svg" width="48" alt="pic" />
@@ -43,7 +43,7 @@ const Landing = ({ children }) => {
         )}
       </header>
       {children}
-    </React.Fragment>
+    </>
   )
 }
 

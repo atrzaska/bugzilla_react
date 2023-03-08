@@ -152,7 +152,7 @@ const Members = () => {
                               Leave project...
                             </A>
                           ) : (
-                            <React.Fragment>
+                            <>
                               <Link
                                 to={`/projects/${id}/people/${item.id}/edit`}
                                 className="dropdown-item"
@@ -166,7 +166,7 @@ const Members = () => {
                               >
                                 Remove from project...
                               </A>
-                            </React.Fragment>
+                            </>
                           )}
                         </div>
                       </div>
